@@ -1,31 +1,27 @@
 pipeline {
-    agent { 
-        docker { image "docker:dind"
-                 args  "--entrypoint='' --privileged"}
-    }
+    agent { dockerfile true }
+
 
     stages {
-        
-        
-        stage ("docker build"){
+
+        stage ("Install dependenciess"){
             steps{
-                sh "docker build -t duh ."
+                
+                echo "installing dependencies"
+                sh "npm install"
             }
         }
-        
-        stage ("run image"){
-            steps{                
-                sh "docker run --name nodeapp -it -d -p 3000:3000 duh"
+        stage ("Deploy"){
+            steps{
+                echo "start project"
+                sh "npm run start:dev &"
             }
         }
-        
         stage ("Test"){
             steps{
                 echo "verify"
                 sh "curl http://localhost:3000"
             }
         }
-
     }
-
 }
