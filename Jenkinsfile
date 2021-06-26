@@ -1,14 +1,11 @@
 pipeline {
     agent { 
-        docker { image "docker:dind" }
+        docker { image "docker:dind"
+                 args  "--entrypoint=''"}
     }
 
     stages {
-        stage ("entrypoint"){
-            steps{
-                sh "nohup /usr/local/bin/dockerd-entrypoint.sh &"
-            }
-        }
+        
         
         stage ("docker build"){
             steps{
