@@ -1,22 +1,20 @@
 pipeline {
-    agent { dockerfile true }
+    agent { image "docker:dind" }
 
 
     stages {
-                    
-        stage ("Install dependenciess"){
+        stage ("docker build"){
             steps{
-                
-                echo "installing dependencies"
-                sh "npm install"
+                sh "docker build -t duh ."
             }
         }
-        stage ("Deploy"){
-            steps{
-                echo "start project"
-                sh "npm run start:dev &"
+        
+        stage ("run image"){
+            steps{                
+                sh "docker run --name nodeapp -it -d -p 3000:3000 duh"
             }
         }
+        
         stage ("Test"){
             steps{
                 echo "verify"
