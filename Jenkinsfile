@@ -4,22 +4,22 @@ pipeline {
     }
 
     stages {
-        stage ("cloning") {
+        stage ("gg") {
             steps{
-                echo "cloning"
-                sh "git clone https://github.com/contentful/the-example-app.nodejs.git"
+                sh "ls /gg"
             }
         }
+            
         stage ("Install dependenciess"){
             steps{
                 echo "installing dependencies"
-                sh "cd the-example-app.nodejs && npm install"
+                sh "npm install"
             }
         }
         stage ("Deploy"){
             steps{
                 echo "start project"
-                sh "cd the-example-app.nodejs && npm run start:dev &"
+                sh "npm run start:dev &"
             }
         }
         stage ("Test"){
