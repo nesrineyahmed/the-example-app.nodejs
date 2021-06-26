@@ -1,3 +1,3 @@
-FROM node:14-alpine
+FROM node:8-alpine
 RUN adduser -h /home/jenkins -s /bin/sh -D jenkins
 
