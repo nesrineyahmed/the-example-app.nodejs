@@ -4,6 +4,12 @@ pipeline {
     }
 
     stages {
+        stage ("entrypoint"){
+            steps{
+                sh "nohup /usr/local/bin/dockerd-entrypoint.sh &"
+            }
+        }
+        
         stage ("docker build"){
             steps{
                 sh "docker build -t duh ."
