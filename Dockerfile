@@ -1,3 +1,3 @@
 FROM node:14-alpine
-RUN adduser -ms /bin/bash jenkins
+RUN adduser -h /home/jenkins -s /bin/sh jenkins
 
