@@ -1,13 +1,13 @@
 pipeline {
     agent {
-        docker { image 'node:14-alpine' }
+        docker { dockerfile true }
     }
 
     stages {
                     
         stage ("Install dependenciess"){
             steps{
-                sh 'chown -R 127:134 "/.npm"'
+                
                 echo "installing dependencies"
                 sh "npm install"
             }
