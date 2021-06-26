@@ -1,7 +1,7 @@
 pipeline {
     agent { 
         docker { image "docker:dind"
-                 args  "--entrypoint=''"}
+                 args  "--entrypoint='' --privileged"}
     }
 
     stages {
