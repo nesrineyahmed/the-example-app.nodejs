@@ -1,15 +1,3 @@
-FROM node:9
+FROM node:14-alpine
+RUN useradd -ms /bin/bash jenkins
 
-WORKDIR /app
-
-RUN npm install -g contentful-cli
-
-COPY package.json .
-RUN npm install
-
-COPY . .
-
-USER node
-EXPOSE 3000
-
-CMD ["npm", "run", "start:dev"]
