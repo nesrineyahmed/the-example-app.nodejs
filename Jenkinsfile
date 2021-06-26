@@ -4,12 +4,7 @@ pipeline {
     }
 
     stages {
-        stage ("gg") {
-            steps{
-                sh "ls /gg"
-            }
-        }
-            
+                    
         stage ("Install dependenciess"){
             steps{
                 echo "installing dependencies"
