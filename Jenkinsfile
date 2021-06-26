@@ -6,7 +6,7 @@ pipeline {
 
         stage ("Install dependenciess"){
             steps{
-                
+                sh "pwd"
                 echo "installing dependencies"
                 sh "npm install"
             }
