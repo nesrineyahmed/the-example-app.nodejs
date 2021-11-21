@@ -20,6 +20,7 @@ pipeline {
             steps{
                 echo "start project"
                 sh "cd the-example-app.nodejs/ && npm run start:dev &"
+                sh "sleep 5"
             }
         }
         stage ("Test"){
