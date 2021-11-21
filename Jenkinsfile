@@ -9,6 +9,7 @@ pipeline {
                 sh "git clone https://github.com/nesrineyahmed/the-example-app.nodejs.git"
                 sh "cd the-example-app.nodejs/"
             }
+        }
         stage ("Install dependenciess"){
             steps{
                 sh "pwd"
