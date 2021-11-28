@@ -6,7 +6,8 @@ pipeline {
         stage ("app clone"){
             steps{
                 echo "cloning app"
-                //sh "git clone https://github.com/nesrineyahmed/the-example-app.nodejs.git"
+                sh "[ -d 'the-example-app.nodejs' ] && rm -rf the-example-app.nodejs"
+                sh "git clone https://github.com/nesrineyahmed/the-example-app.nodejs.git"
             }
         }
         stage ("Install dependenciess"){
